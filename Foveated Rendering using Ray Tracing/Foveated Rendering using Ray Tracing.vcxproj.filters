@@ -13,5 +13,224 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="cuda">
+      <UniqueIdentifier>{98e808cc-b4b4-4dfa-bde2-a44fd95c87b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader">
+      <UniqueIdentifier>{2db06329-43ed-4489-9a71-d2ebb3994b99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader\a-trous">
+      <UniqueIdentifier>{e59af793-a072-460d-9891-f0ee7dd4701f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader\g-buffer">
+      <UniqueIdentifier>{7cd39a77-80ec-475d-8c1a-de36fbc0d1d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader\NNI">
+      <UniqueIdentifier>{d4c5f993-42de-4a22-b9a9-d4cfe31007d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader\JFA">
+      <UniqueIdentifier>{21e474ca-5d02-48dd-a5ba-55b1324625e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader\PPI">
+      <UniqueIdentifier>{6e94300c-8825-4797-83e3-d5768d5feb83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader\shared">
+      <UniqueIdentifier>{45ffb5e5-c8b3-48e6-a9b8-fde66208e51f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shader\LogPolar">
+      <UniqueIdentifier>{d5eda4f9-c3fe-4482-98ca-39c0a436560c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cuda\cuda-header">
+      <UniqueIdentifier>{b97e7006-e6bf-426f-b5a0-c1a836727826}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cuda\g-buffer">
+      <UniqueIdentifier>{800a669b-ac58-4c0f-a7ea-a12fa5b4c14a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cuda\tracer">
+      <UniqueIdentifier>{a61613c6-fcc4-4222-b364-541b33f11e2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cuda\sampling">
+      <UniqueIdentifier>{c7e2e92f-8881-4fd0-99ae-98fd8c53e546}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="cuda\shared">
+      <UniqueIdentifier>{fbc3282c-b1cf-422e-ab4b-83cfbb5a06ee}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ATrous.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="GBuffer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="gui.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="JumpFlooding.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Log_Polar_Transform.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PathTracer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="PullPushInterpolation.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SibsonInterpolation.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="cuda\device_include\shared_helper_funcs.h">
+      <Filter>cuda\cuda-header</Filter>
+    </ClInclude>
+    <ClInclude Include="cuda\device_include\shared_helper_math.h">
+      <Filter>cuda\cuda-header</Filter>
+    </ClInclude>
+    <ClInclude Include="cuda\device_include\commonStructs.h">
+      <Filter>cuda\cuda-header</Filter>
+    </ClInclude>
+    <ClInclude Include="cuda\device_include\helpers.h">
+      <Filter>cuda\cuda-header</Filter>
+    </ClInclude>
+    <ClInclude Include="cuda\device_include\intersection_refinement.h">
+      <Filter>cuda\cuda-header</Filter>
+    </ClInclude>
+    <ClInclude Include="cuda\device_include\prd.h">
+      <Filter>cuda\cuda-header</Filter>
+    </ClInclude>
+    <ClInclude Include="cuda\device_include\random.h">
+      <Filter>cuda\cuda-header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ATrous.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="GBuffer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="gui.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="JumpFlooding.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Log_Polar_Transform.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PathTracer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="PullPushInterpolation.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SibsonInterpolation.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="shader\atFS.glsl">
+      <Filter>shader\a-trous</Filter>
+    </None>
+    <None Include="shader\atVS.glsl">
+      <Filter>shader\a-trous</Filter>
+    </None>
+    <None Include="shader\gbufferFS.glsl">
+      <Filter>shader\g-buffer</Filter>
+    </None>
+    <None Include="shader\gbufferVS.glsl">
+      <Filter>shader\g-buffer</Filter>
+    </None>
+    <None Include="shader\jfFS.glsl">
+      <Filter>shader\JFA</Filter>
+    </None>
+    <None Include="shader\jfVS.glsl">
+      <Filter>shader\JFA</Filter>
+    </None>
+    <None Include="shader\ilogPolarCPFS.glsl">
+      <Filter>shader\LogPolar</Filter>
+    </None>
+    <None Include="shader\logPolarCPFS.glsl">
+      <Filter>shader\LogPolar</Filter>
+    </None>
+    <None Include="shader\pullFS.glsl">
+      <Filter>shader\PPI</Filter>
+    </None>
+    <None Include="shader\pullpushFinal.glsl">
+      <Filter>shader\PPI</Filter>
+    </None>
+    <None Include="shader\pushFS.glsl">
+      <Filter>shader\PPI</Filter>
+    </None>
+    <None Include="shader\cpFS.glsl">
+      <Filter>shader\JFA</Filter>
+    </None>
+    <None Include="shader\cpVS.glsl">
+      <Filter>shader\JFA</Filter>
+    </None>
+    <None Include="shader\sibsonFS.glsl">
+      <Filter>shader\NNI</Filter>
+    </None>
+    <None Include="shader\sibsonVS.glsl">
+      <Filter>shader\NNI</Filter>
+    </None>
+    <None Include="shader\nFS.glsl">
+      <Filter>shader\shared</Filter>
+    </None>
+    <None Include="shader\nVS.glsl">
+      <Filter>shader\shared</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="cuda\g_buffer_trace_camera.cu">
+      <Filter>cuda\g-buffer</Filter>
+    </CudaCompile>
+    <CudaCompile Include="cuda\fov_path_trace_camera.cu">
+      <Filter>cuda\tracer</Filter>
+    </CudaCompile>
+    <CudaCompile Include="cuda\samplingStep.cu">
+      <Filter>cuda\sampling</Filter>
+    </CudaCompile>
+    <CudaCompile Include="cuda\diffuse.cu">
+      <Filter>cuda\shared</Filter>
+    </CudaCompile>
+    <CudaCompile Include="cuda\g_diffuse.cu">
+      <Filter>cuda\shared</Filter>
+    </CudaCompile>
+    <CudaCompile Include="cuda\glass.cu">
+      <Filter>cuda\shared</Filter>
+    </CudaCompile>
+    <CudaCompile Include="cuda\gradientbg.cu">
+      <Filter>cuda\shared</Filter>
+    </CudaCompile>
+    <CudaCompile Include="cuda\parallelogram_iterative.cu">
+      <Filter>cuda\shared</Filter>
+    </CudaCompile>
+    <CudaCompile Include="cuda\reflection.cu">
+      <Filter>cuda\shared</Filter>
+    </CudaCompile>
+    <CudaCompile Include="cuda\refraction.cu">
+      <Filter>cuda\shared</Filter>
+    </CudaCompile>
+    <CudaCompile Include="cuda\triangle_mesh.cu">
+      <Filter>cuda\shared</Filter>
+    </CudaCompile>
+    <CudaCompile Include="cuda\warpSort.cu">
+      <Filter>cuda\shared</Filter>
+    </CudaCompile>
   </ItemGroup>
 </Project>
