@@ -92,8 +92,6 @@ RT_PROGRAM void diffuse()
 	for (int i = 0; i < num_lights; ++i)
 	{
 		ParallelogramLight light = lights[i];
-		const float z1 = rnd(prd_radiance.seed);
-		const float z2 = rnd(prd_radiance.seed);
 		const float3 light_pos = light_position + light.v1 * z1 + light.v2 * z2;
 
 		// Calculate properties of light sample (for area based pdf)
@@ -130,12 +128,13 @@ RT_PROGRAM void diffuse()
 		result += Kd * shadow_result;
 		//result = prd_radiance.result;
 	}
-	else if (prd_radiance.depth < diffuse_max_depth-1) {
+	if (prd_radiance.depth < diffuse_max_depth-1) {
 		Ray refl_ray(hitpoint, diffDir, 1, scene_epsilon);
 		PerRayData_radiance refl_prd;
 		refl_prd.depth = prd_radiance.depth + 1;
 		refl_prd.result = make_float3(0.0f);
 		refl_prd.reflectance = make_float3(0.0f);
+		refl_prd.seed = prd_radiance.seed + 1;
 
 		rtTrace(top_object, refl_ray, refl_prd);
 
