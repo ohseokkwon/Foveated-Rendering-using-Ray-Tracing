@@ -134,7 +134,7 @@ RT_PROGRAM void diffuse()
 		refl_prd.depth = prd_radiance.depth + 1;
 		refl_prd.result = make_float3(0.0f);
 		refl_prd.reflectance = make_float3(0.0f);
-		refl_prd.seed = prd_radiance.seed + 1;
+		refl_prd.seed = prd_radiance.seed;
 
 		rtTrace(top_object, refl_ray, refl_prd);
 
