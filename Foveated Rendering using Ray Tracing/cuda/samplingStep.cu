@@ -230,7 +230,7 @@ RT_PROGRAM void sampling_step()
 
 	thread_buffer[launch_index] = make_uint3(launch_index, usingRay);
 	weight_buffer[launch_index] = make_float4(query_uv, isValid, 0.0f);
-	//extra_buffer[launch_index] = make_float4(heatmap(saliency), 1.0f);
+	extra_buffer[launch_index] = make_float4(heatmap(saliency), 1.0f);
 
 	//extra_buffer[launch_index] = make_float4(query_uv / screenf, 0.0f, 1.0f);
 
