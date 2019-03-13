@@ -173771,11 +173771,13 @@ __declspec(__global__) void diffuse()
 	prd_radiance.reflectance = Kd * shadow_result;
 
 	float3 result = Kd * shadow_result;
+	int depth = 0;
 	
 
 	
 	if (prd_radiance.done) {
 		result += Kd * shadow_result;
+		
 	}
 	else if (prd_radiance.depth < diffuse_max_depth-1) {
 		Ray refl_ray(hitpoint, diffDir, 1, scene_epsilon);
@@ -173788,8 +173790,10 @@ __declspec(__global__) void diffuse()
 
 		
 		result += refl_prd.reflectance;
+		depth = refl_prd.depth;
 	}
 
+	prd_radiance.depth = depth + 1;
 	prd_radiance.result = result;
 }
 
@@ -173861,7 +173865,7 @@ __declspec(__global__) void diffuse()
 
 
 
-#line 216 "D:/Data/Projects/2018/Foveated Rendering/Foveated Rendering using Ray Tracing/Foveated Rendering using Ray Tracing/cuda/diffuse.cu"
+#line 220 "D:/Data/Projects/2018/Foveated Rendering/Foveated Rendering using Ray Tracing/Foveated Rendering using Ray Tracing/cuda/diffuse.cu"
 
 
 

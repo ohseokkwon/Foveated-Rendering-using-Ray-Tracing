@@ -247,7 +247,7 @@ void PathTracer::update_textures()
 	update_gl_texture("thread_buffer", get_texture(THREAD));
 	update_gl_texture("history_buffer", get_texture(HISTORY));
 	update_gl_texture("shading_buffer", get_texture(SHADING));
-	update_gl_texture("accum_buffer", get_texture(EXTRA));
+	update_gl_texture("extra_buffer", get_texture(EXTRA));
 }
 
 bool PathTracer::update_gl_texture(const char* buffer_name, GLuint& opengl_texture_id)
@@ -363,7 +363,7 @@ GLuint& PathTracer::get_texture(TextureName name)
 		update_gl_texture("shading_buffer", m_textures[SHADING]);
 		return m_textures[SHADING];
 	case PathTracer::EXTRA:
-		update_gl_texture("accum_buffer", m_textures[EXTRA]);
+		update_gl_texture("extra_buffer", m_textures[EXTRA]);
 		return m_textures[EXTRA];
 	
 	
@@ -496,12 +496,12 @@ void PathTracer::init_buffers()
 	m_context["weight_buffer"]->set(weight_buffer);
 
 	// Accumulation buffer - 임시 (나중에 아래로 변경)
-	Buffer accum_buffer = sutil::createOutputBuffer(m_context, RT_FORMAT_FLOAT4, m_width, m_height, true);
-	m_context["accum_buffer"]->set(accum_buffer);
+	Buffer extra_buffer = sutil::createOutputBuffer(m_context, RT_FORMAT_FLOAT4, m_width, m_height, true);
+	m_context["extra_buffer"]->set(extra_buffer);
 
-	/*Buffer accum_buffer = m_context->createBuffer(RT_BUFFER_INPUT_OUTPUT | RT_BUFFER_GPU_LOCAL,
+	/*Buffer extra_buffer = m_context->createBuffer(RT_BUFFER_INPUT_OUTPUT | RT_BUFFER_GPU_LOCAL,
 	RT_FORMAT_FLOAT4, m_width, m_height);
-	m_context["accum_buffer"]->set(accum_buffer);*/
+	m_context["extra_buffer"]->set(extra_buffer);*/
 
 	// for history
 	Buffer history_buffer = sutil::createOutputBuffer(m_context, RT_FORMAT_FLOAT4, m_width, m_height, true);

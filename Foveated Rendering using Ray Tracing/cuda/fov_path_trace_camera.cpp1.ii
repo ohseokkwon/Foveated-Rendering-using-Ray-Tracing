@@ -174091,7 +174091,7 @@ __declspec(__device__) optix::buffer<float4, 2>              depth_buffer;
 __declspec(__device__) optix::buffer<uint3, 2>				 thread_buffer;
 __declspec(__device__) optix::buffer<uint3, 2>				 thread_cache;
 
-__declspec(__device__) optix::buffer<float4, 2>              accum_buffer;
+__declspec(__device__) optix::buffer<float4, 2>              extra_buffer;
 
 namespace rti_internal_typeinfo { __declspec(__device__) ::rti_internal_typeinfo::rti_typeinfo top_object = { ::rti_internal_typeinfo::_OPTIX_VARIABLE, sizeof(rtObject)}; } namespace rti_internal_typename { __declspec(__device__) char top_object[] = "rtObject"; } namespace rti_internal_typeenum { __declspec(__device__) int top_object = ::rti_internal_typeinfo::rti_typeenum<rtObject>::m_typeenum; } namespace rti_internal_semantic { __declspec(__device__) char top_object[] = ""; } namespace rti_internal_annotation { __declspec(__device__) char top_object[] = ""; } __declspec(__device__) rtObject top_object;
 namespace rti_internal_typeinfo { __declspec(__device__) ::rti_internal_typeinfo::rti_typeinfo frame = { ::rti_internal_typeinfo::_OPTIX_VARIABLE, sizeof(unsigned int)}; } namespace rti_internal_typename { __declspec(__device__) char frame[] = "unsigned int"; } namespace rti_internal_typeenum { __declspec(__device__) int frame = ::rti_internal_typeinfo::rti_typeenum<unsigned int>::m_typeenum; } namespace rti_internal_semantic { __declspec(__device__) char frame[] = ""; } namespace rti_internal_annotation { __declspec(__device__) char frame[] = ""; } __declspec(__device__) unsigned int frame;
@@ -174102,6 +174102,7 @@ __declspec(__device__) optix::buffer<float3, 1> gaze_target;
 namespace rti_internal_typeinfo { __declspec(__device__) ::rti_internal_typeinfo::rti_typeinfo up = { ::rti_internal_typeinfo::_OPTIX_VARIABLE, sizeof(float3)}; } namespace rti_internal_typename { __declspec(__device__) char up[] = "float3"; } namespace rti_internal_typeenum { __declspec(__device__) int up = ::rti_internal_typeinfo::rti_typeenum<float3>::m_typeenum; } namespace rti_internal_semantic { __declspec(__device__) char up[] = ""; } namespace rti_internal_annotation { __declspec(__device__) char up[] = ""; } __declspec(__device__) float3 up;               
 namespace rti_internal_typeinfo { __declspec(__device__) ::rti_internal_typeinfo::rti_typeinfo cam_target = { ::rti_internal_typeinfo::_OPTIX_VARIABLE, sizeof(float3)}; } namespace rti_internal_typename { __declspec(__device__) char cam_target[] = "float3"; } namespace rti_internal_typeenum { __declspec(__device__) int cam_target = ::rti_internal_typeinfo::rti_typeenum<float3>::m_typeenum; } namespace rti_internal_semantic { __declspec(__device__) char cam_target[] = ""; } namespace rti_internal_annotation { __declspec(__device__) char cam_target[] = ""; } __declspec(__device__) float3 cam_target;
 namespace rti_internal_typeinfo { __declspec(__device__) ::rti_internal_typeinfo::rti_typeinfo g_apertureSize = { ::rti_internal_typeinfo::_OPTIX_VARIABLE, sizeof(float)}; } namespace rti_internal_typename { __declspec(__device__) char g_apertureSize[] = "float"; } namespace rti_internal_typeenum { __declspec(__device__) int g_apertureSize = ::rti_internal_typeinfo::rti_typeenum<float>::m_typeenum; } namespace rti_internal_semantic { __declspec(__device__) char g_apertureSize[] = ""; } namespace rti_internal_annotation { __declspec(__device__) char g_apertureSize[] = ""; } __declspec(__device__) float g_apertureSize;
+namespace rti_internal_typeinfo { __declspec(__device__) ::rti_internal_typeinfo::rti_typeinfo diffuse_max_depth = { ::rti_internal_typeinfo::_OPTIX_VARIABLE, sizeof(int)}; } namespace rti_internal_typename { __declspec(__device__) char diffuse_max_depth[] = "int"; } namespace rti_internal_typeenum { __declspec(__device__) int diffuse_max_depth = ::rti_internal_typeinfo::rti_typeenum<int>::m_typeenum; } namespace rti_internal_semantic { __declspec(__device__) char diffuse_max_depth[] = ""; } namespace rti_internal_annotation { __declspec(__device__) char diffuse_max_depth[] = ""; } __declspec(__device__) int diffuse_max_depth;
 
 __declspec(__global__) void ray_trace()
 {
@@ -174192,6 +174193,8 @@ __declspec(__global__) void ray_trace()
 		rtTrace(top_object, ray, prd);
 		result += prd.result;
 		seed = prd.seed;
+
+		depth = prd.depth;
 
 	} while (--samples_per_pixel);
 	result /= float(sqrt_num_samples*sqrt_num_samples);

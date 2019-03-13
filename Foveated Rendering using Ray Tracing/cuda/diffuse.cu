@@ -122,11 +122,13 @@ RT_PROGRAM void diffuse()
 	prd_radiance.reflectance = Kd * shadow_result;
 
 	float3 result = Kd * shadow_result;
+	int depth = 0;
 	//prd_radiance.result = prd_radiance.reflectance * prd_radiance.radiance;
 
 	// depth นÝบน
 	if (prd_radiance.done) {
 		result += Kd * shadow_result;
+		//result = prd_radiance.result;
 	}
 	else if (prd_radiance.depth < diffuse_max_depth-1) {
 		Ray refl_ray(hitpoint, diffDir, 1, scene_epsilon);
@@ -139,8 +141,10 @@ RT_PROGRAM void diffuse()
 
 		//result = refl_prd.result;// refl_prd.reflectance * refl_prd.radiance;
 		result += refl_prd.reflectance;
+		depth = refl_prd.depth;
 	}
 
+	prd_radiance.depth = depth + 1;
 	prd_radiance.result = result;
 }
 #else

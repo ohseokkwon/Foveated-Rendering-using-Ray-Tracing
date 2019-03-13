@@ -56,7 +56,7 @@ rtBuffer<float4, 2>              depth_buffer;
 rtBuffer<uint3, 2>				 thread_buffer;
 rtBuffer<uint3, 2>				 thread_cache;
 
-rtBuffer<float4, 2>              accum_buffer;
+rtBuffer<float4, 2>              extra_buffer;
 
 rtDeclareVariable(rtObject, top_object, , );
 rtDeclareVariable(unsigned int, frame, , );
@@ -67,6 +67,7 @@ rtBuffer<float3, 1> gaze_target;
 rtDeclareVariable(float3, up, , );               // global up vector
 rtDeclareVariable(float3, cam_target, , );
 rtDeclareVariable(float, g_apertureSize, , );
+rtDeclareVariable(int, diffuse_max_depth, , );
 
 RT_PROGRAM void ray_trace()
 {
@@ -157,6 +158,8 @@ RT_PROGRAM void ray_trace()
 		rtTrace(top_object, ray, prd);
 		result += prd.result;
 		seed = prd.seed;
+
+		depth = prd.depth;
 
 	} while (--samples_per_pixel);
 	result /= float(sqrt_num_samples*sqrt_num_samples);

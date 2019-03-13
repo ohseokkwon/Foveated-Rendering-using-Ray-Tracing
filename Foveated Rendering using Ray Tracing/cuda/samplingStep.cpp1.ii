@@ -174095,7 +174095,7 @@ __declspec(__device__) optix::buffer<float4, 2>              diffuse_buffer;
 
 __declspec(__device__) optix::buffer<uint3, 2>				 thread_buffer;
 __declspec(__device__) optix::buffer<uint3, 2>				 thread_cache;
-__declspec(__device__) optix::buffer<float4, 2>              accum_buffer;
+__declspec(__device__) optix::buffer<float4, 2>              extra_buffer;
 
 __declspec(__device__) optix::buffer<float3, 1> gaze_target;
 
@@ -174265,7 +174265,7 @@ __declspec(__global__) void sampling_step()
 
 	thread_buffer[launch_index] = make_uint3(launch_index, usingRay);
 	weight_buffer[launch_index] = make_float4(query_uv, isValid, 0.0f);
-	accum_buffer[launch_index] = make_float4(heatmap(saliency), 1.0f);
+	
 
 	
 

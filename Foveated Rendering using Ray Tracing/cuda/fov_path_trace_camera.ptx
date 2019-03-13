@@ -39,7 +39,7 @@
 .global .align 1 .b8 depth_buffer[1];
 .global .align 1 .b8 thread_buffer[1];
 .global .align 1 .b8 thread_cache[1];
-.global .align 1 .b8 accum_buffer[1];
+.global .align 1 .b8 extra_buffer[1];
 .global .align 4 .b8 top_object[4];
 .global .align 4 .u32 frame;
 .global .align 8 .b8 launch_index[8];
@@ -48,6 +48,7 @@
 .global .align 4 .b8 up[12];
 .global .align 4 .b8 cam_target[12];
 .global .align 4 .f32 g_apertureSize;
+.global .align 4 .u32 diffuse_max_depth;
 .global .align 4 .b8 _ZN21rti_internal_typeinfo3eyeE[8] = {82, 97, 121, 0, 12, 0, 0, 0};
 .global .align 4 .b8 _ZN21rti_internal_typeinfo3mvpE[8] = {82, 97, 121, 0, 64, 0, 0, 0};
 .global .align 4 .b8 _ZN21rti_internal_typeinfo9bad_colorE[8] = {82, 97, 121, 0, 16, 0, 0, 0};
@@ -62,6 +63,7 @@
 .global .align 4 .b8 _ZN21rti_internal_typeinfo2upE[8] = {82, 97, 121, 0, 12, 0, 0, 0};
 .global .align 4 .b8 _ZN21rti_internal_typeinfo10cam_targetE[8] = {82, 97, 121, 0, 12, 0, 0, 0};
 .global .align 4 .b8 _ZN21rti_internal_typeinfo14g_apertureSizeE[8] = {82, 97, 121, 0, 4, 0, 0, 0};
+.global .align 4 .b8 _ZN21rti_internal_typeinfo17diffuse_max_depthE[8] = {82, 97, 121, 0, 4, 0, 0, 0};
 .global .align 8 .u64 _ZN21rti_internal_register20reg_bitness_detectorE;
 .global .align 8 .u64 _ZN21rti_internal_register24reg_exception_64_detail0E;
 .global .align 8 .u64 _ZN21rti_internal_register24reg_exception_64_detail1E;
@@ -100,6 +102,7 @@
 .global .align 8 .b8 _ZN21rti_internal_typename2upE[7] = {102, 108, 111, 97, 116, 51, 0};
 .global .align 8 .b8 _ZN21rti_internal_typename10cam_targetE[7] = {102, 108, 111, 97, 116, 51, 0};
 .global .align 8 .b8 _ZN21rti_internal_typename14g_apertureSizeE[6] = {102, 108, 111, 97, 116, 0};
+.global .align 4 .b8 _ZN21rti_internal_typename17diffuse_max_depthE[4] = {105, 110, 116, 0};
 .global .align 4 .u32 _ZN21rti_internal_typeenum3eyeE = 4919;
 .global .align 4 .u32 _ZN21rti_internal_typeenum3mvpE = 4919;
 .global .align 4 .u32 _ZN21rti_internal_typeenum9bad_colorE = 4919;
@@ -114,6 +117,7 @@
 .global .align 4 .u32 _ZN21rti_internal_typeenum2upE = 4919;
 .global .align 4 .u32 _ZN21rti_internal_typeenum10cam_targetE = 4919;
 .global .align 4 .u32 _ZN21rti_internal_typeenum14g_apertureSizeE = 4919;
+.global .align 4 .u32 _ZN21rti_internal_typeenum17diffuse_max_depthE = 4919;
 .global .align 1 .b8 _ZN21rti_internal_semantic3eyeE[1];
 .global .align 1 .b8 _ZN21rti_internal_semantic3mvpE[1];
 .global .align 1 .b8 _ZN21rti_internal_semantic9bad_colorE[1];
@@ -128,6 +132,7 @@
 .global .align 1 .b8 _ZN21rti_internal_semantic2upE[1];
 .global .align 1 .b8 _ZN21rti_internal_semantic10cam_targetE[1];
 .global .align 1 .b8 _ZN21rti_internal_semantic14g_apertureSizeE[1];
+.global .align 1 .b8 _ZN21rti_internal_semantic17diffuse_max_depthE[1];
 .global .align 1 .b8 _ZN23rti_internal_annotation3eyeE[1];
 .global .align 1 .b8 _ZN23rti_internal_annotation3mvpE[1];
 .global .align 1 .b8 _ZN23rti_internal_annotation9bad_colorE[1];
@@ -142,6 +147,7 @@
 .global .align 1 .b8 _ZN23rti_internal_annotation2upE[1];
 .global .align 1 .b8 _ZN23rti_internal_annotation10cam_targetE[1];
 .global .align 1 .b8 _ZN23rti_internal_annotation14g_apertureSizeE[1];
+.global .align 1 .b8 _ZN23rti_internal_annotation17diffuse_max_depthE[1];
 .global .align 16 .b8 $str[47] = {67, 97, 117, 103, 104, 116, 32, 101, 120, 99, 101, 112, 116, 105, 111, 110, 32, 48, 120, 37, 88, 32, 97, 116, 32, 108, 97, 117, 110, 99, 104, 32, 105, 110, 100, 101, 120, 32, 40, 37, 100, 44, 37, 100, 41, 10, 0};
 
 .visible .entry _Z9ray_tracev(

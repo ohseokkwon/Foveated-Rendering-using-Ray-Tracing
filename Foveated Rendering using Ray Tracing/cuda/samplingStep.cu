@@ -60,7 +60,7 @@ rtBuffer<float4, 2>              diffuse_buffer;
 
 rtBuffer<uint3, 2>				 thread_buffer;
 rtBuffer<uint3, 2>				 thread_cache;
-rtBuffer<float4, 2>              accum_buffer;
+rtBuffer<float4, 2>              extra_buffer;
 
 rtBuffer<float3, 1> gaze_target;
 
@@ -230,10 +230,10 @@ RT_PROGRAM void sampling_step()
 
 	thread_buffer[launch_index] = make_uint3(launch_index, usingRay);
 	weight_buffer[launch_index] = make_float4(query_uv, isValid, 0.0f);
-	accum_buffer[launch_index] = make_float4(heatmap(saliency), 1.0f);
+	//extra_buffer[launch_index] = make_float4(heatmap(saliency), 1.0f);
 
-	//accum_buffer[launch_index] = make_float4(query_uv / screenf, 0.0f, 1.0f);
+	//extra_buffer[launch_index] = make_float4(query_uv / screenf, 0.0f, 1.0f);
 
-	//accum_buffer[launch_index] = make_float4(make_float3(usingRay), 1.0f);
+	//extra_buffer[launch_index] = make_float4(make_float3(usingRay), 1.0f);
 	//weight_buffer[launch_index] = make_float4(heatmap(saliency), 0.0f);
 }
